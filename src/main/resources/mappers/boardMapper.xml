@@ -17,7 +17,7 @@
 	  </update>
 	  
 	  <delete id="deleteBoard">
-	  	delete tbl_board where no=#{no}
+	  	delete from tbl_board where no=#{no}
 	  </delete>
 	  
 	  <select id="listBoard" resultType="com.jwy.domain.BoardVO">
