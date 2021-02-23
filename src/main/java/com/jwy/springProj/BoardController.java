@@ -24,7 +24,7 @@ public class BoardController {
 	public String registerGet(BoardVO vo, Model model) {
 		// 글 등록 페이지 호출
 		logger.info("/register.. get 호출");
-		return "";
+		return "registerBoard";
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
