@@ -36,15 +36,15 @@
 </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-	<%@include file="templateHeader.jsp"%>
-	<%@include file="templateAside.jsp"%>
+	<%@include file="../templateHeader.jsp"%>
+	<%@include file="../templateAside.jsp"%>
 	<div class="content-wrapper">
 
 		<div class="container">
 			<h1>게시판 글쓰기 페이지</h1>
 			<hr />
 
-			<form action="" method="post" >
+			<form action="/board/register" method="post" >
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="writer">작성자 :</label>
 					<div class="col-sm-10">
@@ -69,7 +69,7 @@
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-success">저장</button>
 						<button type="button" class="btn btn-danger"
-							onclick="">취소</button>
+							onclick="location.href='/board/listAll'">취소</button>
 					</div>
 				</div>
 			</form>
@@ -77,6 +77,6 @@
 	</div>
 
 
-	<%@include file="templateFooter.jsp"%>
+	<%@include file="../templateFooter.jsp"%>
 </body>
 </html>
