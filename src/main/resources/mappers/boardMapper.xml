@@ -33,4 +33,8 @@
 	  <select id="listBoardCriteria" resultType="com.jwy.domain.BoardVO">
 	  	select * from tbl_board order by no desc limit #{pageStart}, #{perPageNum}
 	  </select>
+	  
+	  <select id="getTotalBoardCnt" resultType="int">
+	  	select count(*) from tbl_board
+	  </select>
   </mapper>

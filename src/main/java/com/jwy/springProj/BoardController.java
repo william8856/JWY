@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jwy.domain.BoardVO;
 import com.jwy.domain.PagingCriteria;
+import com.jwy.domain.PagingParam;
 import com.jwy.service.BoardService;
 
 @Controller
@@ -87,6 +88,14 @@ public class BoardController {
 	@RequestMapping(value="/listCri", method=RequestMethod.GET)
 	public void listAll(PagingCriteria cri, Model model) throws Exception {
 		logger.info("페이징 이용한 전체 목록 출력");
-		model.addAttribute("boardList", service.listCriteria(cri));
+		model.addAttribute("boardList", service.listCriteria(cri));  // 게시물 데이터
+		
+		logger.info(cri.toString());
+		PagingParam pp = new PagingParam();
+		pp.setCri(cri);
+		pp.setTotalCount(service.getTotalBoardCnt());
+		logger.info(pp.toString());
+		
+		model.addAttribute("pagingParam", pp);  // 페이징 처리를 위한 파라메터 객체
 	}
 }

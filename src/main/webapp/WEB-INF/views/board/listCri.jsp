@@ -104,14 +104,35 @@
                      onclick="location.href='/board/register';">글쓰기</button>
                </div>
                
+               <div class="text-center">
+               	<ul class="pagination">
+	               	<c:if test="${pagingParam.prev}">
+	               		<li class="page-item">
+	              			<a class="page-link" href="listCri?page=${param.page - 1}">prev</a>
+	                    </li>
+	               	</c:if>
+               		<c:forEach begin="${pagingParam.startPage }" end="${pagingParam.endPage }" var="pageNo">
+<!--               			<li style="padding: 15px;"> -->
+<%--               				<a href="listCri?page=${pageNo }">${pageNo }</a> --%>
+<!--               			</li> -->
+              			<li class="page-item">
+              				<a class="page-link" href="listCri?page=${pageNo }">${pageNo }</a>
+                     	</li>
+               		</c:forEach>
+               		<c:if test="${pagingParam.next}">
+	               		<li class="page-item">
+	              			<a class="page-link" href="listCri?page=${param.page + 1}">next</a>
+	                    </li>
+	               	</c:if>
+				</ul>
+               </div>
+            
                
 			</c:when>
 			<c:otherwise>
 			게시물이 존재하지 않거나, 데이터를 얻어오지 못했습니다.
 			</c:otherwise>
 		</c:choose>
-		
-		
 	</div>
 
 

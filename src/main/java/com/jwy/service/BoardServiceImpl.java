@@ -66,4 +66,9 @@ public class BoardServiceImpl implements BoardService {
 		return dao.listBoardCriteria(cri);
 	}
 
+	@Override
+	public int getTotalBoardCnt() throws Exception {
+		return dao.getTotalBoardCnt();
+	}
+
 }
