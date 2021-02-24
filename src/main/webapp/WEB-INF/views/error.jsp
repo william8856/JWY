@@ -41,10 +41,19 @@
 	<div class="content-wrapper">
 
 		<div class="container">
-			<h1>error 발생</h1>
+			<h1>error 발생()</h1>
 			<hr />
 
 			<h4>잠시 후 재시도 해주세요. 에러가 지속되면 관리자에게 연락 바랍니다.</h4>
+			<div>${exception.getMessage()}</div>
+			<hr />
+			
+			<ul>
+				<c:forEach items="${exception.getStackTrace() }" var="stack">
+					<li>${stack.toString() }</li>
+				</c:forEach>
+			</ul>			
+			
 		</div>
 	</div>
 
