@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jwy.domain.BoardVO;
+import com.jwy.domain.PagingCriteria;
 import com.jwy.service.BoardService;
 
 @Controller
@@ -81,5 +82,11 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/listAll";
+	}
+	
+	@RequestMapping(value="/listCri", method=RequestMethod.GET)
+	public void listAll(PagingCriteria cri, Model model) throws Exception {
+		logger.info("페이징 이용한 전체 목록 출력");
+		model.addAttribute("boardList", service.listCriteria(cri));
 	}
 }
