@@ -82,7 +82,7 @@
                         <td>
                         
                         
-                        <a href="/board/read?no=${board.no }">
+                        <a href="/board/read?no=${board.no }&pageNo=${param.page}">
                            ${board.title }
                         
                         </a>

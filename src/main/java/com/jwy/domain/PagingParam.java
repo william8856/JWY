@@ -22,22 +22,27 @@ public class PagingParam {
 	}
 	
 	private void calcParam() {
-		this.endPage = (int)(Math.ceil(cri.getPage() / (double)this.displayPageNum) * displayPageNum);  // 블럭화를 했을 경우 endPage
+		  // Math.ceil은 소수점 아래가 생기면 무조건 올림처리
+		  this.endPage = (int)(Math.ceil(cri.getPage() / (double)this.displayPageNum)*displayPageNum); // 블럭화 했을 경우 endPage
+		  System.out.println("endPage : " + endPage);
+		  int tempEndPage = (int)(Math.ceil(this.totalCount / (double)cri.getPerPageNum())); // 게시물 수에 따른 실제 endPage
+		  System.out.println("tempEndPage : " + tempEndPage);
+		  
 		
-		int tempEndPage = (int)(Math.ceil((this.totalCount / (double)cri.getPerPageNum())));  // 게시물 수에 따른 실제 endPage
+		  this.startPage = (this.endPage - this.displayPageNum) + 1;
+		  
+		  if(this.endPage > tempEndPage) {
+		     this.endPage = tempEndPage;
+		     
+		  }
+		  
+		  
 		
-		if (this.endPage > tempEndPage) {
-			this.endPage = tempEndPage;
-		}
-		
-		this.startPage = (this.endPage - this.displayPageNum) + 1;
-		
-		this.prev = (cri.getPage() == 1)? false : true;
-		
-		this.next = ((this.endPage * cri.getPerPageNum()) >= this.totalCount)? false : true;
-		
-		
-	}
+		  this.prev = (cri.getPage() == 1)? false : true;
+		  
+		  this.next = ((cri.getPage()  * cri.getPerPageNum()) >= this.totalCount) ? false : true;
+	      
+	   }
 
 	public boolean isPrev() {
 		return prev;

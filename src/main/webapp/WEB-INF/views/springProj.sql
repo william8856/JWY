@@ -10,7 +10,12 @@ writer varchar(50) not null,
 regdate timestamp not null default now(),
 viewcnt int default 0,
 primary key(no)
-)
+);
 
 
-select * from tbl_board;
+select * from tbl_board order by no desc;
+
+insert into tbl_board(title, content, writer)
+(select title, content, writer from tbl_board);
+
+select * from tbl_board order by no desc limit 2, 10;

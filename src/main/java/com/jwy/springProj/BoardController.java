@@ -42,7 +42,7 @@ public class BoardController {
 		if(service.insert(vo)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/board/listAll";
+		return "redirect:/board/listCri";
 	}
 	
 	@RequestMapping(value="/listAll", method=RequestMethod.GET)
@@ -66,7 +66,7 @@ public class BoardController {
 		if(service.remove(no)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/board/listAll";
+		return "redirect:/board/listCri";
 	}
 	
 	@RequestMapping(value="/modi", method=RequestMethod.GET)
@@ -82,7 +82,7 @@ public class BoardController {
 		if(service.modify(vo)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/board/listAll";
+		return "redirect:/board/listCri";
 	}
 	
 	@RequestMapping(value="/listCri", method=RequestMethod.GET)
