@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jwy.domain.BoardVO;
 import com.jwy.domain.PagingCriteria;
+import com.jwy.domain.SearchCriteria;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -61,6 +62,11 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int getTotalBoardCnt() throws Exception {
 		return ses.selectOne(namespace + ".getTotalBoardCnt");
+	}
+
+	@Override
+	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception {
+		return ses.selectList(namespace + ".searchBoard", scri);
 	}
 
 }

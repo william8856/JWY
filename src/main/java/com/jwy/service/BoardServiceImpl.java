@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jwy.domain.BoardVO;
 import com.jwy.domain.PagingCriteria;
+import com.jwy.domain.SearchCriteria;
 import com.jwy.persistence.BoardDAO;
 
 @Service
@@ -69,6 +70,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int getTotalBoardCnt() throws Exception {
 		return dao.getTotalBoardCnt();
+	}
+
+	@Override
+	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception {
+		return dao.goSearch(scri);
 	}
 
 }

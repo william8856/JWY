@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jwy.domain.BoardVO;
 import com.jwy.domain.PagingCriteria;
 import com.jwy.domain.PagingParam;
+import com.jwy.domain.SearchCriteria;
 import com.jwy.service.BoardService;
 
 @Controller
@@ -93,9 +94,19 @@ public class BoardController {
 		logger.info(cri.toString());
 		PagingParam pp = new PagingParam();
 		pp.setCri(cri);
-		pp.setTotalCount(service.getTotalBoardCnt());
+		pp.setTotalCount(service.getTotalBoardCnt());  // 게시물 갯수
 		logger.info(pp.toString());
 		
 		model.addAttribute("pagingParam", pp);  // 페이징 처리를 위한 파라메터 객체
+	}
+	
+	@RequestMapping(value="/search", method=RequestMethod.GET)
+	public String search(SearchCriteria scri, Model model) throws Exception {
+		System.out.println("검색 시작");
+		System.out.println(scri.toString());
+		System.out.println(service.goSearch(scri));
+		model.addAttribute("boardList", service.goSearch(scri));
+		
+		return "/board/listCri";
 	}
 }

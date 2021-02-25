@@ -82,7 +82,7 @@
                         <td>
                         
                         
-                        <a href="/board/read?no=${board.no }&pageNo=${param.page}">
+                        <a href="/board/read?no=${board.no }&page=${param.page}">
                            ${board.title }
                         
                         </a>
@@ -102,6 +102,19 @@
                <div>
                   <button type="button" class="btn btn-info" style="float: right;"
                      onclick="location.href='/board/register';">글쓰기</button>
+               </div>
+               
+               <div>
+               	<form action="/board/search" method="GET">
+	               	<select name="searchType">
+	               		<option value="n">------------------------</option>
+	               		<option value="title">제목</option>
+	               		<option value="content">내용</option>
+	               		<option value="writer">작성자</option>
+	               	</select>
+	               	<input type="text" name="searchWord" placeholder="검색어 입력" />
+	               	<input type="submit" id="goSearch" value="검색" />
+               	</form>
                </div>
                
                <div class="text-center">

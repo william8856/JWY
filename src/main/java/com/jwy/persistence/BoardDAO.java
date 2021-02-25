@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.jwy.domain.BoardVO;
 import com.jwy.domain.PagingCriteria;
+import com.jwy.domain.SearchCriteria;
 
 public interface BoardDAO {
 	// 글 생성
@@ -24,4 +25,6 @@ public interface BoardDAO {
 	public List<BoardVO> listBoardCriteria(PagingCriteria cri) throws Exception;
 
 	public int getTotalBoardCnt() throws Exception;
+
+	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception;
 }

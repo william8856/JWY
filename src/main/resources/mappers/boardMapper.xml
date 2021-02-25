@@ -37,4 +37,18 @@
 	  <select id="getTotalBoardCnt" resultType="int">
 	  	select count(*) from tbl_board
 	  </select>
+	  
+	  <select id="searchBoard" resultType="com.jwy.domain.BoardVO">
+	  	select * from tbl_board where
+	  	<if test="searchType == 'title'">
+	  		title like concat('%', #{searchWord}, '%')
+	  	</if>
+	  	<if test="searchType == 'content'">
+	  		content like concat('%', #{searchWord}, '%')
+	  	</if>
+	  	<if test="searchType == 'writer'">
+	  		writer like concat('%', #{searchWord}, '%')
+	  	</if>
+	  	order by no desc
+	  </select>
   </mapper>

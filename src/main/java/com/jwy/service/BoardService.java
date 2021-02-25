@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.jwy.domain.BoardVO;
 import com.jwy.domain.PagingCriteria;
+import com.jwy.domain.SearchCriteria;
 
 public interface BoardService {
 	public boolean insert(BoardVO vo) throws Exception;
@@ -19,5 +20,7 @@ public interface BoardService {
 	public List<BoardVO> listCriteria(PagingCriteria cri) throws Exception;
 
 	public int getTotalBoardCnt() throws Exception;
+
+	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception;
 }
  
