@@ -1,6 +1,8 @@
 package com.jwy.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -65,8 +67,15 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception {
-		return ses.selectList(namespace + ".searchBoard", scri);
+	public List<BoardVO> goSearch(SearchCriteria scri, PagingCriteria cri) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchType", scri.getSearchType());
+		map.put("searchWord", scri.getSearchWord());
+		map.put("pageStart", cri.getPageStart());
+		map.put("perPageNum", cri.getPerPageNum());
+		return ses.selectList(namespace + ".searchBoard", map);
+		
+		
 	}
 
 }

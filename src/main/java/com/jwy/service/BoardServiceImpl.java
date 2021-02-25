@@ -73,8 +73,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception {
-		return dao.goSearch(scri);
+	public List<BoardVO> goSearch(SearchCriteria scri, PagingCriteria cri) throws Exception {
+		return dao.goSearch(scri, cri);
 	}
 
 }

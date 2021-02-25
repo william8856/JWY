@@ -101,11 +101,15 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public String search(SearchCriteria scri, Model model) throws Exception {
+	public String search(SearchCriteria scri, PagingCriteria cri, Model model) throws Exception {
 		System.out.println("검색 시작");
 		System.out.println(scri.toString());
-		System.out.println(service.goSearch(scri));
-		model.addAttribute("boardList", service.goSearch(scri));
+		model.addAttribute("boardList", service.goSearch(scri, cri));
+		
+		PagingParam pp = new PagingParam();
+		pp.setCri(cri);
+		pp.setTotalCount(service.getTotalBoardCnt());
+		model.addAttribute("pagingParam", pp);
 		
 		return "/board/listCri";
 	}

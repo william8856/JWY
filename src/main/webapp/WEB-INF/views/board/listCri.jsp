@@ -121,7 +121,7 @@
                	<ul class="pagination">
 	               	<c:if test="${pagingParam.prev}">
 	               		<li class="page-item">
-	              			<a class="page-link" href="listCri?page=${param.page - 1}">prev</a>
+	              			<a class="page-link" href="listCri?page=${param.page - 1}&searchType=${map.searchType}&searchWord=${map.searchWord}">prev</a>
 	                    </li>
 	               	</c:if>
                		<c:forEach begin="${pagingParam.startPage }" end="${pagingParam.endPage }" var="pageNo">
