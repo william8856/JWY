@@ -34,7 +34,8 @@
 <!-- 	DAO 패키지와 Service패키지를 자동 스캔하여 bean을 생성할 수 있도록 -->
 	<context:component-scan base-package="com.jwy.persistence"></context:component-scan>
 	<context:component-scan base-package="com.jwy.service"></context:component-scan>
+	<context:component-scan base-package="com.jwy.aop"></context:component-scan>
 	
-<!-- 	Spring AOP 설정. Aspect 라이브러리를 이용하여 Proxy 객체를 생성 -->
+<!-- 	Spring AOP 설정. Aspect 라이브러리를 이용하여 Proxy 객체를 생성 (xml proxy를 설정할 때) -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>

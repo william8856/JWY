@@ -12,7 +12,7 @@ public class MessageDAOImpl implements MessageDAO {
 
 	@Inject
 	private SqlSession ses;
-	private static String namespace = "com.jwy.mapper.messagMapper";
+	private static String namespace = "com.jwy.mapper.messageMapper";
 	
 	@Override
 	public void create(MessageVO vo) throws Exception {
