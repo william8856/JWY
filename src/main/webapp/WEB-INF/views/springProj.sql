@@ -39,3 +39,43 @@ primary key(no)
 alter table tbl_reply add constraint fk_board foreign key(bno) references tbl_board(no);
 
 select * from tbl_reply;
+
+-- 회원 테이블 생성
+create table tbl_user
+(
+uid varchar(50) not null,
+upw varchar(50) not null,
+uname varchar(100),
+upoint int(11),
+primary key(uid)
+);
+
+-- message 테이블 생성
+create table tbl_message
+(
+mid int(11) not null auto_increment,
+targetid varchar(50),
+sender varchar(50),
+message varchar(100),
+opendate timestamp,
+senddate timestamp,
+primary key(mid)
+);
+
+alter table tbl_message add constraint fk_targetid foreign key(targetid) references tbl_user(uid);
+
+alter table tbl_message add constraint fk_sender foreign key(sender) references tbl_user(uid);
+
+select distinct writer from tbl_board;
+
+insert into tbl_user(uid, upw, uname) values('', '1234', 'noName');
+
+select distinct replyer from tbl_reply;
+
+alter table tbl_board add constraint fk_writer_tbl foreign key(writer) references tbl_user(uid);
+
+select uid from tbl_user;
+
+alter table tbl_reply add constraint fk_reply_replyer foreign key(replyer) references tbl_user(uid);
+
+delete from tbl_user where uid in('');
