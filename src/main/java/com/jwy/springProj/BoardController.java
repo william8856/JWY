@@ -72,12 +72,14 @@ public class BoardController {
 	
 	@RequestMapping(value="/modi", method=RequestMethod.GET)
 	public void modiBoard(@RequestParam("no") int no, Model model) throws Exception {
+		// 게시물을 수정하기 위해 게시물을 불러서 수정페이지에 출력
 		logger.info("/modi.. get 호출");
 		model.addAttribute("board", service.read(no));
 	}
 	
 	@RequestMapping(value="/modi", method=RequestMethod.POST)
 	public String upadateBoard(BoardVO vo, RedirectAttributes rttr) throws Exception {
+		// 수정 페이지에서 유저가 수정 후 저장 버튼을 눌렀을때 실제 수정
 		logger.info("/modi.. post 호출");
 		System.out.println(vo.toString());
 		if(service.modify(vo)) {

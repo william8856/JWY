@@ -9,7 +9,7 @@
  	</insert>
  	
  	<select id="read" resultType="com.jwy.domain.ReplyVO">
- 		select * from tbl-reply where bno=#{bno} order by no desc
+ 		select * from tbl_reply where bno=#{bno} order by no desc
  	</select>
  	
  	<update id="update">
@@ -19,4 +19,4 @@
  	<delete id="delete">
  		delete from tbl_reply where no=#{no}
  	</delete>
- </mapper>  	
+ </mapper>
