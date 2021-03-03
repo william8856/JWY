@@ -51,4 +51,14 @@
 	  	</if>
 	  	order by no desc
 	  </select>
+	  
+<!-- 	  답글이 달렸을 때 replycnt 증가 -->
+	  <update id="updateReplyCnt">
+	  	update tbl_board set replycnt = replycnt + #{amount} where no = #{no}
+	  </update>
+	  
+<!-- 	  조회수 증가 -->
+	  <update id="updateViewCnt">
+	  	update tbl_board set viewcnt = viewcnt + 1 where no = #{no}
+	  </update>
   </mapper>

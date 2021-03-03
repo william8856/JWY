@@ -37,4 +37,9 @@ public class ReplyDAOImpl implements ReplyDAO {
 		ses.delete(ns + ".delete", no);
 	}
 
+	@Override
+	public int getBno(int no) throws Exception {
+		return ses.selectOne(ns + ".getBno", no);
+	}
+
 }

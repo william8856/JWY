@@ -57,6 +57,7 @@
                         <th>작성자</th>
                         <th>작성일</th>
                         <th>조회수</th>
+                        <th>댓글수</th>
                         <th>좋아요</th>
                      </tr>
                   </thead>
@@ -65,33 +66,26 @@
                   		<c:when test='${board.isdelete == "Y" }'>
                   			<tr>
                         <td><strike>${board.no }</strike></td>
-                        <td><strike>
-                        	${board.title }
-                        </strike>
-                           </td>
+                        <td><strike>${board.title }</strike></td>
                         <td><strike>${board.writer }<strike></strike></td>
                         <td><strike></strike><span class="sendTime" id="${status.count }"><fmt:formatDate
                                  value="${board.regdate }" type="both"
                                  pattern="yyyy-MM-dd HH:mm:ss" /></span></strike></td>
                         <td><strike>${board.viewcnt }</strike></td>
+                        <td><strike><span class="badge badge-secondary">${board.replycnt}</span></strike></td>
                      </tr>
                   		</c:when>
                   		<c:otherwise>
                      <tr>
                         <td>${board.no }</td>
-                        <td>
-                        
-                        
-                        <a href="/board/read?no=${board.no }&page=${param.page}">
-                           ${board.title }
-                        
-                        </a>
-                           </td>
+                        <td><a href="/board/read?no=${board.no }&page=${param.page}">${board.title }</a></td>
                         <td>${board.writer }</td>
                         <td><span class="sendTime" id="${status.count }"><fmt:formatDate
                                  value="${board.regdate }" type="both"
                                  pattern="yyyy-MM-dd HH:mm:ss" /></span></td>
                         <td>${board.viewcnt }</td>
+                        <td><span class="badge badge-secondary">${board.replycnt}</span></td>
+                        
                      </tr>
                      </c:otherwise>
                         </c:choose>

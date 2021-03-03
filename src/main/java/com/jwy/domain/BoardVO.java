@@ -11,6 +11,7 @@ public class BoardVO {
 	private int viewcnt;
 	private String isdelete;
 	private String modi;
+	private int replycnt;
 	
 	public String getModi() {
 		return modi;
@@ -24,7 +25,10 @@ public class BoardVO {
 		super();
 	}
 	
-	public BoardVO(int no, String title, String content, String writer, Date regdate, int viewcnt, String isdelete) {
+	
+
+	public BoardVO(int no, String title, String content, String writer, Date regdate, int viewcnt, String isdelete,
+			String modi, int replycnt) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -33,6 +37,8 @@ public class BoardVO {
 		this.regdate = regdate;
 		this.viewcnt = viewcnt;
 		this.isdelete = isdelete;
+		this.modi = modi;
+		this.replycnt = replycnt;
 	}
 
 	public String getIsdelete() {
@@ -79,12 +85,23 @@ public class BoardVO {
 	public void setViewcnt(int viewcnt) {
 		this.viewcnt = viewcnt;
 	}
-	
+
+	public int getReplycnt() {
+		return replycnt;
+	}
+
+	public void setReplycnt(int replycnt) {
+		this.replycnt = replycnt;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + ", viewcnt=" + viewcnt + "]";
+				+ regdate + ", viewcnt=" + viewcnt + ", isdelete=" + isdelete + ", modi=" + modi + ", replycnt="
+				+ replycnt + "]";
 	}
+	
+	
 	
 	
 }
