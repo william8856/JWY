@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function addFilePath(msg) {
-// 		alert(msg);
+		alert(msg);
 
 		document.getElementById("uploadForm").reset();
 	}
