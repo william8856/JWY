@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.JPopupMenu.Separator;
 
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.jwy.service.BoardService;
 import com.jwy.util.MediaConfirm;
 import com.jwy.util.UploadFileProcess;
 
@@ -39,6 +41,9 @@ import com.jwy.util.UploadFileProcess;
 public class HomeController {
 	
 //	private static String uploadPath = "E:\\lecture\\springupload";
+	
+	@Inject
+	private BoardService bservice;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -89,6 +94,15 @@ public class HomeController {
 	@RequestMapping(value="/uploadAjax", method=RequestMethod.GET)
 	public void uploadAjax() {
 		
+	}
+	
+	@RequestMapping(value="/doInterceptor", method = RequestMethod.GET)
+	public String doInterceptor(Locale local, Model model) throws Exception {
+		System.out.println("/doInterceptor가 GET방식으로 호출됨");
+		
+		model.addAttribute("boardList", bservice.listAll());
+		
+		return "home";
 	}
 	
 	@RequestMapping(value="/uploadAjax", method=RequestMethod.POST, produces = "text/plain; charset=UTF-8")

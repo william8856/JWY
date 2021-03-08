@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -41,6 +41,12 @@
 	<%@include file="templateAside.jsp" %>
 	<div class="content-wrapper">
 		<h1>여기가 본문</h1>
+		
+		<c:if test="${loginMember != null}">
+			<form action="" method = "post">
+				<div>${loginMember.uid }님 반갑습니다. <input type="submit" value="로그아웃" /></div>
+			</form>
+		</c:if>
 	</div>
 	<%@include file="templateFooter.jsp" %>
 </body>
