@@ -29,6 +29,7 @@
    <!-- Interceptor 클래스 빈 설정 -->
    <beans:bean id="testInterceptor" class="com.jwy.interceptor.TestInterceptor"></beans:bean>
    <beans:bean id="loginInterceptor" class="com.jwy.interceptor.LoginInterceptor"></beans:bean>
+   <beans:bean id="authInterceptor" class="com.jwy.interceptor.AuthInterceptor"></beans:bean>
    
    <!-- Interceptor 설정 -->
    <interceptors>
@@ -39,6 +40,12 @@
    		<interceptor>
    			<mapping path="/user/login"/>
    			<beans:ref bean="loginInterceptor"/>
+   		</interceptor>
+   		<interceptor>
+   			<mapping path="/board/register" /> <!-- 글쓰기 -->
+   			<mapping path="/board/modi"/> <!-- 글수정 -->
+   			<mapping path="/board/romove"/> <!-- 글삭제 -->
+   			<beans:ref bean="authInterceptor"/>
    		</interceptor>
    </interceptors>
    

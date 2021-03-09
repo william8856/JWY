@@ -15,13 +15,7 @@
 </script>
 </head>
 <body>
-	<h3>Login Page</h3>
+	<h3>Logout Page</h3>
 	
-	<form action="/user/login" method="post">
-		아이디 : <input type="text" name="uid" /><br />
-		비밀번호 : <input type="password" name="upw" /><br />
-		Remember Me : <input type="checkbox" name="userCookie" /> Remember Me <br />
-		<input type="submit" value="로그인" onclick="displayWarn();" />
-	</form>
 </body>
 </html>

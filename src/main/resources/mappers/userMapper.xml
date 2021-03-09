@@ -7,4 +7,12 @@
   	<select id="login" resultType="com.jwy.domain.UserVO">
   		select * from tbl_user where uid=#{uid} and upw=#{upw}
   	</select>
+  	
+  	<update id="keepLogin">
+  		update tbl_user set sesKey = #{sesId}, sesdeadline = #{cookieAge} where uid = #{uid}
+  	</update>
+  	
+  	<select id="checkUserWithSesKey" resultType="com.jwy.domain.UserVO">
+  		select * from tbl_user where sesKey = #{sesKey} and sesdeadline > now()
+  	</select>
   </mapper>

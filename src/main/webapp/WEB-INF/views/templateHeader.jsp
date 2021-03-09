@@ -46,6 +46,16 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/board/listCri" class="nav-link">board</a>
       </li>
+      <c:choose>
+		<c:when test="${loginMember == null }">
+			<li class="nav-item d-none d-sm-inline-block">
+	        <a href="/user/login" class="nav-link">Login</a></li>
+		</c:when>
+		<c:otherwise>
+			<li class="nav-item d-none d-sm-inline-block">${loginMember.uid }</li>
+		</c:otherwise>
+      </c:choose>
+      
     </ul>
 
     <!-- SEARCH FORM -->

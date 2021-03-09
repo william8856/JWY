@@ -43,7 +43,7 @@
 		<h1>여기가 본문</h1>
 		
 		<c:if test="${loginMember != null}">
-			<form action="" method = "post">
+			<form action="/user/logout" method = "post">
 				<div>${loginMember.uid }님 반갑습니다. <input type="submit" value="로그아웃" /></div>
 			</form>
 		</c:if>
